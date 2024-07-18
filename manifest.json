@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Grid Overlay",
+  "version": "1.0",
+  "description": "A simple test",
+  "permissions": [
+    "webNavigation"
+  ],
+  "browser_action": {
+    "default_icon": "GridOverlay.png",
+    "default_title": "GridOverlay"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "icons": {
+    "48": "GridOverlay.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "GridOverlay.png"
+    }
+  },
+  "commands": {
+    "toggle": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      },
+      "description": "Toggle the Grid Overlay"
+    }
+  }
+}
