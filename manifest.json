@@ -1,46 +1,24 @@
 {
   "manifest_version": 2,
-  "name": "Grid Overlay",
+  "name": "Popup Toggle Extension",
   "version": "1.0",
-  "description": "A simple test",
-  "permissions": [
-    "webNavigation"
-  ],
+  "description": "A simple extension to toggle a message in a popup",
   "browser_action": {
-    "default_icon": "GridOverlay.png",
-    "default_title": "GridOverlay"
-  },
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon.png"
+    }
   },
   "icons": {
-    "48": "GridOverlay.png"
+    "48": "icons/icon.png"
   },
+  "permissions": [
+    "activeTab"
+  ],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ]
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
-  ],
-  "browser_action": {
-    "default_popup": "popup/popup.html",
-    "default_icon": {
-      "48": "GridOverlay.png"
-    }
-  },
-  "commands": {
-    "toggle": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+L"
-      },
-      "description": "Toggle the Grid Overlay"
-    }
-  }
+  ]
 }
